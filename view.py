@@ -1,8 +1,10 @@
+
 import flet as ft
 
 class View(object):
     def __init__(self, page: ft.Page):
         # Page
+        self.on_check_click = None
         self.page = page
         self.page.title = "TdP 2024 - Lab 04 - SpellChecker ++"
         self.page.horizontal_alignment = 'CENTER'
@@ -21,14 +23,20 @@ class View(object):
         # title + theme switch
         self.__title = ft.Text("TdP 2024 - Lab 04 - SpellChecker ++", size=24, color="blue")
         self.__theme_switch = ft.Switch(label="Light theme", on_change=self.theme_changed)
+        self.__input_text = ft.TextField(label="Inserisci il testo da analizzare", multiline=True, width=500,
+                                         color="black")
+        self.__check_button = ft.ElevatedButton(text="Correggi", on_click=self.on_check_click)
         self.page.controls.append(
-            ft.Row(spacing=30, controls=[self.__theme_switch, self.__title, ],
+            ft.Row(spacing=30, controls=[self.__theme_switch, self.__title ],
                    alignment=ft.MainAxisAlignment.START)
         )
 
+
         # Add your stuff here
 
-        self.page.add([])
+        self.page.add(ft.Row(spacing=30, controls=[self.__input_text, self.__check_button]))
+
+
 
         self.page.update()
 
