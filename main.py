@@ -11,3 +11,4 @@ def main(page: ft.Page):
     view.update()
 
 ft.app(target=main)
+# ft.app(target=main, view=ft.AppView.WEB_BROWSER)

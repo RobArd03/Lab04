@@ -12,6 +12,7 @@ class MultiDictionary:
         self._english.loadDictionary("resources/English.txt")
         self._italian.loadDictionary("resources/Italian.txt")
         self._spanish.loadDictionary("resources/Spanish.txt")
+        MultiDictionary.printDic(self, "english")
 
     def printDic(self, language):
         if language == "english":
@@ -40,8 +41,11 @@ class MultiDictionary:
             elif language == "spanish":
                 if self._spanish.dict.__contains__(word):
                     found = True
+
             if (found):
                 richW.corretta = True
+            else:
+                richW.corretta = False
 
             parole.append(richW)
 
